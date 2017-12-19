@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <title>forget password</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" href="__PUBLIC__/X-admin/css/x-admin.css" media="all">
+    </head>
+    
+    <body>
+        <div class="x-body">
+            <form class="layui-form" method="post" action="">
+            	<input type="hidden" id="ids" value="{$list['id']}" >
+                <div class="layui-form-item">
+                    <label for="username" style="font-size:30px" >change password</label>
+                </div>
+
+			    <div class="layui-form-item">
+                    <label for="L_pass" class="layui-form-label">
+                        <span class="x-red">*</span>new password
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="password" id="L_pass" name="pass" required="" lay-verify="pass" autocomplete="off" class="layui-input">
+                    </div>
+                    <div id='ss' class="layui-form-mid layui-word-aux">
+                        6 to 16 random charactors
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label for="L_repass" class="layui-form-label">
+                        <span class="x-red">*</span>confirm
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="password" id="L_repass" name="repass" required="" lay-verify="repass" autocomplete="off" class="layui-input">
+                    </div>
+                     <div id='dd' class="layui-form-mid layui-word-aux">
+                       
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label"></label>
+                    <button id="ff" class="layui-btn" lay-filter="add" lay-submit="" disabled>confirm change</button>
+                </div>
+            </form>
+        </div>
+        <script src="__PUBLIC__/X-admin/lib/layui/layui.js" charset="utf-8">
+        </script>
+        <script src="__PUBLIC__/X-admin/js/x-layui.js" charset="utf-8">
+        </script>
+        <script>
+
+            layui.use(['form','layer'], function(){
+                $ = layui.jquery;
+              var form = layui.form()
+              ,layer = layui.layer;
+
+              // check password form
+              $("#L_pass").blur(function(){
+                pass = $(this).val();
+                if(pass.match(/^\w{6,18}$/)){
+                   $('#ss').css("color","green").html("pass");
+                }else{
+                   $('#ss').css("color","red").html("password form wrong");
+                   $("#ff").attr("disabled",true);
+
+                }
+
+              });
+
+              // check if two input passwords are same
+              $("#L_repass").blur(function(){
+                repass = $(this).val();
+                pass =$("#L_pass").val();
+                if(repass == pass){
+                    $("#dd").css("color","green").html("pass");
+                    $("#ff").attr("disabled",false);
+                }else{
+                    $("#dd").css("color","red").html("different input");
+                    $("#ff").attr("disabled",true);
+                }
+              });
+          
+
+              form.on('submit(add)', function(data){
+                
+                pass = $("#L_pass").val();
+             
+                $.post('__MODULE__/Login/resetpass',{password:pass},function(data){
+                    if(data!="success"){
+                        alert('data delete fail');
+                        return false;
+                    }else{
+                       layer.alert("edit success", {icon: 6},function () {
+                        // get frame index
+                        var index = parent.layer.getFrameIndex(window.name);
+                        //close current frame
+                        parent.layer.close(index);
+                        parent.reload();
+                     }); 
+                    }
+                });
+                
+                return false;
+              });
+            
+
+            }); 
+            
+           
+        </script>
+    </body>
+
+</html>

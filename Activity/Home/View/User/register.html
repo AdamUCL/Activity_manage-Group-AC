@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Register</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" href="__PUBLIC__/X-admin/css/x-admin.css" media="all">
+        <style type="text/css">
+            *{
+              padding:0;
+              margin:0; 
+            }
+            body{
+              background-color:#F3F3F3;
+              /*display:block;*/
+            }
+            .main{
+              margin:30px auto;
+              width:600px;
+              border:1px solid #ccc;
+              box-shadow: 0px 0px 10px 5px #E4E4E4;
+              border-radius:10px;
+              background-color:white;
+              z-index:999;
+            }
+
+
+        </style>
+    </head>
+    <body>
+      <div class="layui-layout layui-layout-admin">
+        <div class="layui-header header header-demo">
+          <div class="layui-main">
+              <a class="logo" href="__MODULE__/Index/index" >
+                  <img src="__PUBLIC__/X-admin/images/ggg.jpg" style="margin-bottom:10px;width:150px;height:50px" >
+                  Group AC
+              </a>
+          </div>
+        </div>
+
+        <div class="x-nav">
+            <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"  href="javascript:location.replace(location.href);" title="刷新"><i class="layui-icon" style="line-height:30px">ဂ</i></a>
+        </div>
+      </div>
+      <!-- picture -->
+      <div class="body">
+        <div></div>
+	     
+        <div class="main x-body">
+			    	<form class="layui-form layui-form-pane" action="__MODULE__/Login/add" onsubmit="return demo()" method="post">
+              <div class="layui-form-item" >
+                <label class="layui-form-label" style="width:150px">Realname</label>
+                <div class="layui-input-inline">
+                  <input type="text" id="name" name="realname" required  lay-verify="required" placeholder="realname" autocomplete="off" class="layui-input">
+                </div>
+                <div id="namess" class="layui-form-mid layui-word-aux"> * Please fill in the realname</div>
+              </div>
+
+              <div class="layui-form-item" >
+                <label class="layui-form-label" style="width:150px">Username</label>
+                <div class="layui-input-inline">
+                  <input type="text" id="name" name="username" required  lay-verify="required" placeholder="username" autocomplete="off" class="layui-input">
+                </div>
+                <div id="names" class="layui-form-mid layui-word-aux"> * Please fill in the  username</div>
+              </div>
+
+              <div class="layui-form-item" >
+                <label class="layui-form-label" style="width:150px">Password</label>
+                <div class="layui-input-inline">
+                  <input type="password" id="password" name="password" required lay-verify="required" placeholder="Please input a password" autocomplete="off" class="layui-input">
+                </div>
+                <div id="passs" class="layui-form-mid layui-word-aux"> * Six to eighteen digit arbitrary number letters</div>
+              </div>
+              <div class="layui-form-item">
+                <label class="layui-form-label" style="width:150px">Verify password</label>
+                <div class="layui-input-inline">
+                  <input type="password" name="repassword" required lay-verify="required" placeholder="Enter password again" autocomplete="off" class="layui-input">
+                </div>
+                <div id="repasss" class="layui-form-mid layui-word-aux"> * Verify password</div>
+              </div>
+              
+              <div class="layui-form-item" >
+                <label class="layui-form-label" style="width:150px">Gender</label>
+                <div class="layui-input-inline" >
+                  <input type="radio" name="sex" value="1" title="M">
+                  <input type="radio" name="sex" value="0" title="F" checked>
+                </div>
+                <!-- <div class="layui-form-mid layui-word-aux">helped words</div> -->
+              </div>
+              <div class="layui-form-item" >
+                <label class="layui-form-label" style="width:150px">Address</label>
+                <div class="layui-input-inline">
+                  <input type="text" name="address" placeholder="Example:London" class="layui-input">
+                </div>
+                <div id="addresss" class="layui-form-mid layui-word-aux"> * </div>
+              </div>
+              <div class="layui-form-item" >
+                <label class="layui-form-label" style="width:150px">Phone</label>
+                <div class="layui-input-inline">
+                  <input type="text" name="phone" required  placeholder="Phone" autocomplete="off" class="layui-input">
+                </div>
+                <div id="phones" class="layui-form-mid layui-word-aux"> * </div>
+              </div>
+    
+              <div class="layui-form-item" >
+                <label class="layui-form-label" style="width:150px">E-mail</label>
+                <div class="layui-input-inline">
+                  <input type="text" name="email" lay-verify="email" class="layui-input">
+                </div>
+                <div id="emails" class="layui-form-mid layui-word-aux"></div>
+              </div>
+              <div class="layui-form-item" >
+                <label class="layui-form-label" style="width:150px">University</label>
+                <div class="layui-input-inline">
+                  <input type="text" name="university" placeholder="Example:University of London" class="layui-input">
+                </div>
+              </div>
+              <div class="layui-form-item">
+                <label class="layui-form-label" style="width:150px">Subject</label>
+                <div class="layui-input-inline">
+                  <input type="text" name="performance" placeholder="Example:Mobile communication technology"  class="layui-input">
+                </div>
+              </div>
+              <div class="layui-form-item">
+                <label class="layui-form-label" style="width:150px">Birthday</label>
+                <div class="layui-input-inline">
+                  <input type="date" name="birthday" placeholder="Example:Mobile communication technology"  class="layui-input">
+                </div>
+              </div>
+              <div class="layui-form-item">
+                <div class="layui-input-inline">
+                  <button class="layui-btn" lay-submit lay-filter="formDemo">Register</button>
+                  <button type="reset" class="layui-btn layui-btn-primary">Reset</button>
+                </div>
+              </div>
+            </form>
+          </div>
+			 </div>
+
+       <div>
+        <center>  <p>Copyright Group AC 2017 - 2018 Edu Inc.</p><br>Powered by <a href="javascript:;" title="pass">Group AC</a></center>
+    </div>
+
+        <script src="__PUBLIC__/X-admin/lib/layui/layui.js" charset="utf-8"></script>
+        <script src="__PUBLIC__/X-admin/js/x-layui.js" charset="utf-8"></script>
+        <script>
+
+            layui.use(['laydate','element','laypage','layer','form'], function(){
+              $ = layui.jquery;//jquery
+              layer = layui.layer;
+  				    var form = layui.form();
+
+              //Ajax vertification for input data
+              //name check
+              name1 = false;
+              pass1 = false;
+              repass1 = false;
+              card = false; 
+              address1 = false;
+              phone1 =false;
+              qq1 = false;
+              email1 = false;
+              contacts_name1 = false;
+              contacts_phone1 = false;
+              //name pass
+              $("input[name='username']").blur(function(){
+                name = $(this).val();
+                if(name.match(/[a-zA-Z]{2,10}/)){
+                    $("#names").text("Pass");
+                    $("#names").css('color',"#999");
+                    name1 = true;
+                }else{
+                    $("#names").text("Name matching error");
+                    $("#names").css('color',"red");
+                    name1 = false;
+                }
+              });
+
+              //pass if password correct
+              $("#password").blur(function () {
+                  pass = $(this).val();
+                  
+                if(pass.match(/^[\w]{6,18}$/)){
+                    $("#passs").text("Pass");
+                     $("#passs").css('color',"#999");
+                    pass1 = true;
+                }else{
+                    $("#passs").text("Any numeric alphabet with six to eighteen digits");
+                    $("#passs").css('color',"red");
+                    pass1 = false;
+                }
+              });
+
+              //vertification code check
+              $("input[name='repassword']").blur(function(){
+                  repass = $(this).val()
+                  pass = $("input[name='password']").val();
+                  if(repass!=pass){
+                    $("#repasss").text("The two password input is inconsistent");
+                    $("#repasss").css('color',"red");
+                    repass1 = true;
+                  }else{
+                    $("#repasss").text("Pass");
+                    $("#repasss").css('color',"#999");
+                    repass1 = true;
+                  }
+              }); 
+
+              //phone number check
+              $("input[name='phone']").blur(function(){
+                  phone = $(this).val();
+                  if(phone.match(/^(\+?44|0)7\d{9}$/)){
+
+                   $.post("__MODULE__/Login/preg_phone",{phone:phone},function(data){
+                          if(data==0){
+                              $("#phones").text("Pass");
+                              $("#phones").css('color',"#999");
+                              phone1 = true;
+                          }else{
+                            $("#phones").text("Mobile phone number already exists");
+                            $("#phones").css('color',"red");
+                            phone1 = false;
+                          }
+                      });
+                  }else{
+                    $("#phones").text("The phone number is not in the right format");
+                    $("#phones").css('color',"red");
+                    phone1 = false;
+                  }
+                  
+              });
+
+
+              //email check
+              $("input[name='email']").blur(function(){
+                  email = $(this).val();
+                  if(email.match(/^[0-9a-z][_.0-9a-z-]{0,31}@([0-9a-z][0-9a-z-]{0,30}[0-9a-z]\.){1,4}[a-z]{2,4}$/)){
+                      $("#emails").text("Pass");
+                      $("#emails").css('color',"#999");
+                      email1 = true;
+
+                  }else{
+                      $("#emails").text("Incorrect format");
+                      $("#emails").css('color',"red");
+                      email1 = false;
+                  }
+                  
+              });
+
+             }); 
+
+            function demo(){
+              if(name1 & pass1 & repass1  & phone1 & email1){
+                return true;
+              }else{
+                return false;
+              }
+            }
+
+              
+          </script>
+   
+    </body>
+</html>
